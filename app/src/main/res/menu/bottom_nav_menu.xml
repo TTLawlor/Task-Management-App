@@ -7,11 +7,11 @@
         android:icon="@android:drawable/checkbox_on_background"
         android:title="@string/task_list" />
     <item
-        android:id="@+id/calender"
+        android:id="@+id/calendar"
         android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="@string/calender" />
+        android:title="Calendar" />
     <item
         android:id="@+id/create"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/new_task" />
+        android:title="New Task" />
 </menu>

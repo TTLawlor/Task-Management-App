@@ -13,6 +13,8 @@ import com.google.android.material.navigation.NavigationBarView;
 public class MainActivity extends AppCompatActivity implements NavigationBarView.OnItemSelectedListener {
 
     BottomNavigationView bottomNavigationView;
+    TasksFragment tasksFragment = new TasksFragment();
+    CalendarFragment calendarFragment = new CalendarFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,21 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+
+        switch (item.getItemId()) {
+            case R.id.tasks:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, tasksFragment).commit();
+                return true;
+
+            case R.id.calendar:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, calendarFragment).commit();
+                return true;
+
+//            case R.id.newTasks:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.container, createTaskFragment).commit();
+//                return true;
+
+        }
+                return false;
     }
 }
