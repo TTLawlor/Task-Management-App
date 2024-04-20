@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tasks"
+        android:icon="@android:drawable/checkbox_on_background"
+        android:title="@string/task_list" />
+    <item
+        android:id="@+id/calender"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="@string/calender" />
+    <item
+        android:id="@+id/create"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/new_task" />
+</menu>

@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Task Management App</string>
+    <string name="task_list">Task List</string>
+    <string name="calender">Calender</string>
+    <string name="new_task">New Task</string>
+    <string name="login">Login</string>
+    <string name="email">Email:</string>
+    <string name="password">Password:</string>
+    <string name="emailTxtBox">email...</string>
+    <string name="passwordTxtBox">password...</string>
+    <string name="loginBtn">LOGIN</string>
+    <string name="registerSignUpBtn">REGISTER NOW</string>
+    <string name="registerWelcome">Welcome to NAME</string>
+    <string name="registerBtn">REGISTER</string>
+    <string name="name">Name:</string>
+    <string name="nameTxtBox">name...</string>
 </resources>
