@@ -21,5 +21,9 @@
     <string name="taskDate">Task Date and Time</string>
     <string name="dateTxtBox">Set Due Date</string>
     <string name="priority">Set Task Priority</string>
+    <string name="lowPriority">Low</string>
+    <string name="medPriority">Medium</string>
+    <string name="highPriority">High</string>
+    <string name="saveTask">SAVE</string>
 
 </resources>
