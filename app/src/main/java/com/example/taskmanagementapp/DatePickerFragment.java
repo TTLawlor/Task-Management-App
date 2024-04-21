@@ -5,13 +5,19 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.DatePicker;
+import android.widget.EditText;
 
 import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
+    private EditText dateEdt;
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+        dateEdt = getActivity().findViewById(R.id.editTextDate);
+
         // Use the current date as the default date in the picker.
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
@@ -24,5 +30,10 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
         // Do something with the date the user picks.
+
+        dateEdt.setText(day + "-" + (month + 1) + "-" + year);
+
+        DialogFragment timeFragment = new TimePickerFragment();
+        timeFragment.show(getActivity().getSupportFragmentManager(), "timePicker");
     }
 }
