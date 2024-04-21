@@ -14,4 +14,12 @@
     <string name="registerBtn">REGISTER</string>
     <string name="name">Name:</string>
     <string name="nameTxtBox">name...</string>
+    <string name="taskTitle">Task Title</string>
+    <string name="titleTxtBox">Enter Task Title</string>
+    <string name="taskDesc">Task Description</string>
+    <string name="descTxtBox">Enter Task Description</string>
+    <string name="taskDate">Task Date and Time</string>
+    <string name="dateTxtBox">Set Due Date</string>
+    <string name="priority">Set Task Priority</string>
+
 </resources>

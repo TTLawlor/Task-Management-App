@@ -9,9 +9,9 @@
     <item
         android:id="@+id/calendar"
         android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="Calendar" />
+        android:title="@string/calender" />
     <item
-        android:id="@+id/create"
+        android:id="@+id/createTask"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="New Task" />
+        android:title="@string/new_task" />
 </menu>

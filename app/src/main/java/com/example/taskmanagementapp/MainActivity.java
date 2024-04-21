@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
     BottomNavigationView bottomNavigationView;
     TasksFragment tasksFragment = new TasksFragment();
     CalendarFragment calendarFragment = new CalendarFragment();
+    CreateTaskFragment createTaskFragment = new CreateTaskFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +41,9 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, calendarFragment).commit();
                 return true;
 
-//            case R.id.newTasks:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.container, createTaskFragment).commit();
-//                return true;
+            case R.id.createTask:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, createTaskFragment).commit();
+                return true;
 
         }
                 return false;
