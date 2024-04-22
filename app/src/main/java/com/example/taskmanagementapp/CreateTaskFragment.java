@@ -82,10 +82,9 @@ public class CreateTaskFragment extends Fragment {
                 String p = (String) radButPriority.getText();
 
                 String strDate = edTexDate.getText().toString();
-//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//                Date date = LocalDate.parse(strDate, formatter);
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
                 Date date = null;
+                // try parse String to Date
                 try {
                     date = formatter.parse(strDate);
                 } catch (ParseException e) {
@@ -100,8 +99,6 @@ public class CreateTaskFragment extends Fragment {
                     addDatatoFirebase(t, d, p, date);
                 }
                 Task task = new Task(t, d, p, date, null);
-//                FirebaseAuth auth = FirebaseAuth.getInstance();
-//                mDatabase.setValue(task);
             }
 
             private void addDatatoFirebase(String t, String d, String p, Date date) {

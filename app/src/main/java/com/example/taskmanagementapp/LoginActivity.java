@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // if fields filled, attempt login
                 if(isEmailFilled() && isPasswordFilled()) {
                     login();
                 }

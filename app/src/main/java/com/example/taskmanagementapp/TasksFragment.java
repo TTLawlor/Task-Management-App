@@ -65,14 +65,13 @@ public class TasksFragment extends Fragment {
                 mTaskList.clear();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Task task = dataSnapshot1.getValue(Task.class);
-                    mTaskList.add(task);
+                    if(task.getCompleted() == false) {
+                        mTaskList.add(task);
+                    }
                 }
                 allTasksAdapter = new TaskAdapter(TasksFragment.this.getContext(), mTaskList);
                 recyclerView.setAdapter(allTasksAdapter);
                 allTasksAdapter.notifyDataSetChanged();
-//                if(mTaskList.isEmpty()){
-//
-//                }
             }
 
             @Override
