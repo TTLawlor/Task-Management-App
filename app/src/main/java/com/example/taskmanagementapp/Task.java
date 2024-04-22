@@ -1,6 +1,7 @@
 package com.example.taskmanagementapp;
 
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Task {
@@ -13,6 +14,7 @@ public class Task {
 
     public Task() {
         //Default constructor required for calls to DataSnapshot.getValue(Task.class)
+
     }
 
     public Task(String title, String description, String priority, Date date, Time time) {

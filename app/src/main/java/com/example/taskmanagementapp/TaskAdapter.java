@@ -9,10 +9,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.annotations.NotNull;
-
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
@@ -36,6 +37,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
         holder.mTitle.setText(task.getTitle());
         holder.mDesc.setText(task.getDescription());
         holder.mPriority.setText(task.getPriority());
+        Date date = task.getDate();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+        String formattedDate = formatter.format(date);
+
+        holder.mDate.setText(formattedDate);
     }
 
     @Override
@@ -44,12 +50,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     }
 
     public class TaskViewHolder extends RecyclerView.ViewHolder {
-        TextView mTitle,mDesc,mPriority;
+        TextView mTitle,mDesc,mPriority,mDate;
         public TaskViewHolder(View itemView) {
             super(itemView);
             mTitle=itemView.findViewById(R.id.listTaskTitle);
             mDesc=itemView.findViewById(R.id.listTaskDesc);
-            mPriority=itemView.findViewById(R.id.listTaskDate);
+            mPriority=itemView.findViewById(R.id.listTaskPriority);
+            mDate=itemView.findViewById(R.id.listTaskDate);
 
         }
     }

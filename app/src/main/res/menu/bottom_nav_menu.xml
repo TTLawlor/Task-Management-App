@@ -6,10 +6,10 @@
         android:id="@+id/tasks"
         android:icon="@android:drawable/checkbox_on_background"
         android:title="@string/task_list" />
-    <item
-        android:id="@+id/calendar"
-        android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="@string/calender" />
+<!--    <item-->
+<!--        android:id="@+id/calendar"-->
+<!--        android:icon="@android:drawable/ic_menu_my_calendar"-->
+<!--        android:title="@string/calender" />-->
     <item
         android:id="@+id/createTask"
         android:icon="@android:drawable/ic_menu_add"

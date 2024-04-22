@@ -37,9 +37,9 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, tasksFragment).commit();
                 return true;
 
-            case R.id.calendar:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, calendarFragment).commit();
-                return true;
+//            case R.id.calendar:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.container, calendarFragment).commit();
+//                return true;
 
             case R.id.createTask:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, createTaskFragment).commit();

@@ -15,40 +15,72 @@
 
         <TextView
             android:id="@+id/listTaskTitle"
-            android:layout_width="281dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="170dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
             android:textAlignment="center"
             android:textColor="#E91E63"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/listTaskDate"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/delTask"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/listTaskDesc"
-            android:layout_width="279dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="16dp"
+            android:layout_width="169dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/listTaskDate"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/delTask"
             app:layout_constraintTop_toBottomOf="@+id/listTaskTitle" />
 
         <TextView
-            android:id="@+id/listTaskDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/listTaskPriority"
+            android:layout_width="77dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/completeTask"
+            app:layout_constraintStart_toEndOf="@+id/listTaskTitle"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/delTask"
+            android:layout_width="48dp"
+            android:layout_height="0dp"
+            android:background="#950808"
+            android:contentDescription="delete Task"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/completeTask"
+            android:layout_width="48dp"
+            android:layout_height="0dp"
+            android:background="#4CAF50"
+            android:contentDescription="complete Task"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <TextView
+            android:id="@+id/listTaskDate"
+            android:layout_width="84dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/completeTask"
+            app:layout_constraintStart_toEndOf="@+id/listTaskDesc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -20,11 +20,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
+
 public class CreateTaskFragment extends Fragment {
-    private EditText title;
-    private EditText desc;
-    private RadioButton priority;
-    private EditText dateTime;
+    private EditText edTexTitle;
+    private EditText edTexDesc;
+    private RadioButton radButPriority;
+    private EditText edTexDate;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference mDatabase;
     private Button saveTask;
@@ -50,13 +57,12 @@ public class CreateTaskFragment extends Fragment {
         mDatabase = firebaseDatabase.getReference("Task");
 
         // Initializing the edittext and radio button
-        title = (EditText) getActivity().findViewById(R.id.editTextTextTaskTitle);
-        desc = (EditText) getActivity().findViewById(R.id.editTextTextDescMultiLine);
+        edTexTitle = (EditText) getActivity().findViewById(R.id.editTextTextTaskTitle);
+        edTexDesc = (EditText) getActivity().findViewById(R.id.editTextTextDescMultiLine);
         RadioGroup radioGroup = (RadioGroup) getActivity().findViewById(R.id.radio_group);
-        dateTime = (EditText) getActivity().findViewById(R.id.editTextDate);
 
-        dateTime = (EditText) getActivity().findViewById(R.id.editTextDate);
-        dateTime.setOnClickListener(new View.OnClickListener() {
+        edTexDate = (EditText) getActivity().findViewById(R.id.editTextDate);
+        edTexDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogFragment dateFragment = new DatePickerFragment();
@@ -69,25 +75,37 @@ public class CreateTaskFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                priority = (RadioButton) getActivity().findViewById(radioGroup.getCheckedRadioButtonId());
+                radButPriority = (RadioButton) getActivity().findViewById(radioGroup.getCheckedRadioButtonId());
 
-                String t = title.getText().toString();
-                String d = desc.getText().toString();
-                String p = (String) priority.getText();
+                String t = edTexTitle.getText().toString();
+                String d = edTexDesc.getText().toString();
+                String p = (String) radButPriority.getText();
+
+                String strDate = edTexDate.getText().toString();
+//                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//                Date date = LocalDate.parse(strDate, formatter);
+                SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+                Date date = null;
+                try {
+                    date = formatter.parse(strDate);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+
 
                 // checking if edittext fields are empty or not.
-                if (TextUtils.isEmpty(t) && TextUtils.isEmpty(d) && TextUtils.isEmpty(p)) {
+                if (TextUtils.isEmpty(t) && TextUtils.isEmpty(d) && TextUtils.isEmpty(p) && TextUtils.isEmpty(strDate)) {
 //                    Toast.makeText(MainActivity.this, "Please add some data.", Toast.LENGTH_SHORT).show();
                 } else {
-                    addDatatoFirebase(t, d, p);
+                    addDatatoFirebase(t, d, p, date);
                 }
-                Task task = new Task(t, d, p, null, null);
+                Task task = new Task(t, d, p, date, null);
 //                FirebaseAuth auth = FirebaseAuth.getInstance();
 //                mDatabase.setValue(task);
             }
 
-            private void addDatatoFirebase(String t, String d, String p) {
-                Task task = new Task(t, d, p, null, null);
+            private void addDatatoFirebase(String t, String d, String p, Date date) {
+                Task task = new Task(t, d, p, date, null);
                 mDatabase.push().setValue(task);
             }
         });
